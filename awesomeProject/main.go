@@ -43,12 +43,6 @@ func main() {
 		})
 	})
 
-	// pr -программирование; sp -спорт; v -Видеоигры; b -Бред; mov -фильмы; mu-музыка.
-	//	router.Handle("/api/thread/{id}/", handlers.ThreadHandler{Conn: conn}).Methods(http.MethodGet)
-	//router.Handle("/api/pr/{id}/", handlers.ThreadHandler{Conn: conn}).Methods(http.MethodGet)
-	//router.Handle("/api/mu/{id}/", handlers.ThreadHandler{Conn: conn}).Methods(http.MethodGet)
-	//router.Handle("/api/mov/{id}/", handlers.ThreadHandler{Conn: conn}).Methods(http.MethodGet)
-	//router.Handle("/api/sp/{id}/", handlers.ThreadHandler{Conn: conn}).Methods(http.MethodGet)
 	router.HandleFunc("/api/message/", func(writer http.ResponseWriter, request *http.Request) {
 		writer.Header().Set("Access-Control-Allow-Origin", "*")
 		var err error
@@ -152,7 +146,6 @@ func main() {
 	srv := &http.Server{
 		Handler: router,
 		Addr:    ":8001",
-		// Good practice: enforce timeouts for servers you create!
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}
